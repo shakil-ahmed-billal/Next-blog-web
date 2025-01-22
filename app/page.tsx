@@ -1,11 +1,25 @@
-import React from 'react'
+import getPosts from "@/api/getPosts";
+import BlogCard from "@/components/BlogCard";
 
-const Home = () => {
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  content: string;
+};
+
+const Home = async () => {
+  const posts = await getPosts();
+
+  console.log(posts);
+
   return (
     <div>
-      <p>page</p>
+      <div className="grid md:grid-cols-3 gap-5 my-5">
+      {posts.map((post: Post) => <BlogCard key={post.id} post={post}></BlogCard>)}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

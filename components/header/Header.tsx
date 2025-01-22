@@ -3,16 +3,16 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { LogOut } from "lucide-react";
 
 const Header = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  console.log(user);
 
   return (
-    <>
-      <div className="flex justify-between items-center p-4 bg-gray-100">
+    <div className="bg-gray-100 bg-opacity-50 sticky top-0 backdrop-blur-sm">
+      <div className="flex justify-between items-center p-4 w-11/12 mx-auto">
         <div className="">
           <Image
             src={"/blog_logo.png"}
@@ -23,10 +23,11 @@ const Header = async () => {
         </div>
         <div className="space-x-2 flex items-center justify-center">
           <Link href={"/"}> Home</Link>
+          <Link href={"/profile"}> Home</Link>
           {user ? (
             <div className="">
               <LogoutLink>
-                <Button>Logout</Button>
+                <Button variant={"destructive"} className="rounded-full"><LogOut /></Button>
               </LogoutLink>
             </div>
           ) : (
@@ -38,7 +39,7 @@ const Header = async () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
