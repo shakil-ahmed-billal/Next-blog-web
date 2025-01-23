@@ -23,7 +23,8 @@ const Header = async () => {
         </div>
         <div className="space-x-2 flex items-center justify-center">
           <Link href={"/"}> Home</Link>
-          <Link href={"/profile"}> Home</Link>
+          <Link href={"/profile"}> Profile</Link>
+          <Link href={"/profile"}> Profile</Link>
           {user ? (
             <div className="">
               <LogoutLink>

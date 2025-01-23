@@ -1,4 +1,5 @@
 import getPosts from "@/api/getPosts";
+import Banner from "@/components/bannar/Banner";
 import BlogCard from "@/components/BlogCard";
 
 type Post = {
@@ -15,8 +16,13 @@ const Home = async () => {
 
   return (
     <div>
-      <div className="grid md:grid-cols-3 gap-5 my-5">
-      {posts.map((post: Post) => <BlogCard key={post.id} post={post}></BlogCard>)}
+      <div>
+        <Banner></Banner>
+        <div  className="grid md:grid-cols-3 gap-5 my-5">
+          {posts.map((post: Post) => (
+            <BlogCard key={post.id} post={post}></BlogCard>
+          ))}
+        </div>
       </div>
     </div>
   );
