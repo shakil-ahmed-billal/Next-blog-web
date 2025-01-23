@@ -12,7 +12,6 @@ type Post = {
 const Home = async () => {
   const posts = await getPosts();
 
-  console.log(posts);
 
   return (
     <div>
