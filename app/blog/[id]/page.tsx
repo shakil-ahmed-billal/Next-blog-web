@@ -1,15 +1,29 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+
 const page = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
   const post = await response.json();
-  console.log(post);
-  
+
+  const { title, body } = post || {};
+
   return (
-    <div>
-      <p>Blogs details</p>
-      <p>Blog Post ID: {id}</p>
+    <div className="py-20">
+      <Card>
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+            <CardDescription>{body}</CardDescription>
+        </CardContent>
+        <CardFooter>
+            <Link href={'/'}><Button>Back to Home</Button></Link>
+        </CardFooter>
+      </Card>
     </div>
   );
 };
