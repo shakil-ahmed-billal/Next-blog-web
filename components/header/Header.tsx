@@ -14,12 +14,7 @@ const Header = async () => {
     <div className="bg-gray-100 bg-opacity-50 sticky top-0 backdrop-blur-sm">
       <div className="flex justify-between items-center p-4 w-11/12 mx-auto">
         <div className="">
-          <Image
-            src={"/blog_logo.png"}
-            alt="blog site logo"
-            width={80}
-            height={80}
-          ></Image>
+          <p>MY Blogs</p>
         </div>
         <div className="space-x-2 flex items-center justify-center">
           <Link href={"/"}> Home</Link>

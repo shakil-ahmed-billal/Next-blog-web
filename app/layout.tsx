@@ -33,7 +33,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header></Header>
           <main className="w-11/12 min-h-[calc(100vh-165px)] mx-auto">{children}</main>
-          <Footer></Footer>
+
         </AuthProvider>
       </body>
     </html>

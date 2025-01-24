@@ -17,6 +17,8 @@ const Page = async ({ params }: PageProps) => {
   // Await the params directly
   const { id } = await params;
 
+  
+
   // Fetch post data using the dynamic ID
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`

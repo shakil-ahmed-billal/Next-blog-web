@@ -2,7 +2,7 @@ const Banner = () => {
   return (
     <div>
       <div className="">
-        <h1 className="text-6xl w-8/12 mx-auto font-bold text-center my-20">Craft <span className="bg-[#E4E4FA]">Unique</span> Magazines & Blogs with Revision</h1>
+        <p className="text-2xl font-bold text-center">Simple Blog Page</p>
       </div>
     </div>
   );

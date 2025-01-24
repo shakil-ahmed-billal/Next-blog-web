@@ -1,11 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 const page = async () => {
-  const { getUser } = getKindeServerSession();
+  const { getUser , isAuthenticated } = getKindeServerSession();
   const user = await getUser();
 
+  if (!(await isAuthenticated())) {
+    redirect("/api/auth/login?post_login_redirect_url=/profile");
+  }
+  
   console.log(user);
   return (
     <div className="py-20">
