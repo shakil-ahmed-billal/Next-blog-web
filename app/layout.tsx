@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import Header from "@/components/header/Header";
 import { AuthProvider } from "@/provider/AuthProvider";
 import type { Metadata } from "next";
@@ -32,8 +31,9 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header></Header>
-          <main className="w-11/12 min-h-[calc(100vh-165px)] mx-auto">{children}</main>
-
+          <main className="w-11/12 min-h-[calc(100vh-165px)] mx-auto">
+            {children}
+          </main>
         </AuthProvider>
       </body>
     </html>

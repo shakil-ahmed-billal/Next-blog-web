@@ -1,14 +1,12 @@
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import Image from "next/image";
+import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { LogOut } from "lucide-react";
 
 const Header = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-
 
   return (
     <div className="bg-gray-100 bg-opacity-50 sticky top-0 backdrop-blur-sm">
@@ -23,7 +21,9 @@ const Header = async () => {
           {user ? (
             <div className="">
               <LogoutLink>
-                <Button variant={"destructive"} className="rounded-full"><LogOut /></Button>
+                <Button variant={"destructive"} className="rounded-full">
+                  <LogOut />
+                </Button>
               </LogoutLink>
             </div>
           ) : (
