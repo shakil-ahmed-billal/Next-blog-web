@@ -1,18 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Link from "next/link";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string; }>;
 }
 
 const Page = async ({ params }: PageProps) => {
-  // Destructure params to get the ID
-  const blogIdName =await params 
-  const { id } = blogIdName;
+  // Await the params directly
+  const { id } = await params;
 
   // Fetch post data using the dynamic ID
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}`
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch post data");
